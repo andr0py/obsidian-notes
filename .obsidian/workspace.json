@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docker használata.md",
+                "file": "docker/Docker használata.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Docker használata.md",
+                "file": "docker/Docker használata.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Docker használata.md",
+                "file": "docker/Docker használata.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Docker használata.md"
+                "file": "docker/Docker használata.md"
               }
             }
           }
@@ -148,6 +148,7 @@
   },
   "active": "bd60c2bea3c3da4a",
   "lastOpenFiles": [
+    "linux",
     "Docker használata.md",
     "docker"
   ]
