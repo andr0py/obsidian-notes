@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "docker/Docker használata.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "041bb4b011bf1fc8",
