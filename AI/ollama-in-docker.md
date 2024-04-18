@@ -2,6 +2,7 @@
 
 ![ollama](../img/ollama.png)
 ## konténer létrehozása
+
 1. belépés a `home` könyvtárba
 ```bash
 cd ~
@@ -22,7 +23,8 @@ docker run -d -v /home/andr0/Docker/ollamadir:/root/.ollama -p 11434:11434 --nam
 ```bash
 docker exec -it ollama ollama run llama2
 ```
-2. aliaszolás
+
+2. aliaszolás, érdemes felvinni a `~/.bashrc` fájlba
 ```bash
 # a fenti parancs aliaszolása
 alias ollama="docker exec -it ollama ollama"
