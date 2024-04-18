@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/open-SSH-server.md",
-                "mode": "preview",
+                "file": "linux/virtualbox.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/open-SSH-server.md",
+                "file": "linux/virtualbox.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/open-SSH-server.md",
+                "file": "linux/virtualbox.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/open-SSH-server.md"
+                "file": "linux/virtualbox.md"
               }
             }
           }
@@ -148,11 +148,12 @@
   },
   "active": "bd60c2bea3c3da4a",
   "lastOpenFiles": [
+    "linux/open-SSH-server.md",
+    "linux/virtualbox.md",
     "docker/Docker használata.md",
     "AI/ollama-in-docker.md",
     "img/ollama.png",
     "AI",
-    "linux/open-SSH-server.md",
     "img/ssh-keys.png",
     "img",
     "linux",
