@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/ollama-in-docker.md",
+                "file": "linux/open-SSH-server.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/ollama-in-docker.md",
+                "file": "linux/open-SSH-server.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/ollama-in-docker.md",
+                "file": "linux/open-SSH-server.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/ollama-in-docker.md"
+                "file": "linux/open-SSH-server.md"
               }
             }
           }
@@ -148,11 +148,11 @@
   },
   "active": "bd60c2bea3c3da4a",
   "lastOpenFiles": [
-    "img/ollama.png",
     "docker/Docker használata.md",
     "AI/ollama-in-docker.md",
+    "img/ollama.png",
     "AI",
-    "linux/open-SSH server.md",
+    "linux/open-SSH-server.md",
     "img/ssh-keys.png",
     "img",
     "linux",

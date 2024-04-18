@@ -1,25 +1,32 @@
+# SSH szerver
+
 ## Bevezetés
 
 Az SSH (Secure Shell) egy titkosított protokoll, amely távoli számítógépekhez való biztonságos kapcsolódást tesz lehetővé. Használható fájlok másolására, parancsok futtatására és távoli gépek konfigurálására.
 
 Ez a markdown jegyzet az SSH telepítésének lépéseit mutatja be Windows, macOS és Linux rendszereken.
+
 ### SSH telepítése Ubuntu Linux rendszeren
 
 Az SSH szerver alapértelmezés szerint nincs telepítve minden Ubuntu rendszerre, de a telepítése nagyon egyszerű. Az alábbi lépéseket követve telepítheti az SSH-t az Ubuntu rendszerére:
 
-1. **Csomagok frissítése:** A legfrissebb csomaglista letöltéséhez írja be a következő parancsot a terminálba, majd nyomja meg az Enter billentyűt:
+### Csomagok frissítése
+
+A legfrissebb csomaglista letöltéséhez írja be a következő parancsot a terminálba, majd nyomja meg az Enter billentyűt:
 
 ```bash
 sudo apt update && apt upgrade -y
 ```
 
-2. **SSH telepítése:** Írja be a következő parancsot a terminálba az SSH szerver telepítéséhez, majd nyomja meg az Enter billentyűt:
+### SSH telepítése
+
+Írja be a következő parancsot a terminálba az SSH szerver telepítéséhez, majd nyomja meg az Enter billentyűt:
 
 ```bash
 sudo apt install openssh-server
 ```
 
-3. **Telepítés ellenőrzése:**
+### Telepítés ellenőrzése
 
 - Annak ellenőrzéséhez, hogy az SSH szolgáltatás fut-e, írja be a következő parancsot a terminálba:
 
@@ -44,7 +51,7 @@ Ha a szolgáltatás fut, akkor a kimenet hasonló lesz a következőhöz:
  máj  7 00:12:17 systemd[1]: Started OpenSSH SSH server.
 ```
 
-**tűzfal beállítása (opcionális):**
+### tűzfal beállítása (opcionális)
 
 Ha tűzfalat használ az Ubuntu rendszerén, engedélyeznie kell a bejövő SSH-kapcsolatokat. Az UFW tűzfal esetén a következő parancsot használhatja:
 
@@ -54,28 +61,34 @@ sudo ufw allow OpenSSH
 
 Gratulálunk! Sikeresen telepítette az SSH szervert az Ubuntu rendszerére. Most már távolról csatlakozhat a számítógépéhez egy másik számítógépről SSH-ügyfél segítségével.
 
-4. **SSH csatlakozás**
+### SSH csatlakozás
 
 Csatlakozáshoz szükséges szintaxis:
+
 ```bash
 ssh [felhasználónév]@[távoli számítógép hosztneve vagy IP-címe]
 ```
 
 ### SSH kulcspár készítése [DigitalOcean tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)
+
 ![SSH-KEYS](../img/ssh-keys.png)
 
 The first step is to create a key pair on the client machine (usually your computer):
+
 ```shell
 ssh-keygen -b 4096
 ```
 
-5. Ha szerveren hozod létre a kulcsot, akkor a privát kulcsot kell bemásolni az authorized keys-be
+Ha szerveren hozod létre a kulcsot, akkor a privát kulcsot kell bemásolni az authorized keys-be
+
 ```bash
 cat id_rsa.pub >> authorized_keys
 ```
 
 ### SSH konfig fájl
+
 `sudo nano /etc/ssh/sshd_config` módosítandó sorok:
+
 ```conf
 Port 22
 PasswordAuthentication no
@@ -85,13 +98,15 @@ PermitRootLogin no
 ClientAliveInterval 600
 ClientAliveCountMax 2
 ```
-`
-config fájl újratöltése:
+
+### config fájl újratöltése
+
 ```bash
 sudo systemctl reload sshd
 ```
 
-7. SSH szolgáltatás újraindítása
+### SSH szolgáltatás újraindítása
+
 ```bash
 sudo systemctl restart ssh
 ```
