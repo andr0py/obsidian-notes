@@ -60,48 +60,59 @@ sudo docker container prune
 ```shell
 #!/bin/bash
 
-mkdir -p -v /home/$USER/Docker/jellyfin/config
-mkdir -p -v /home/$USER/Docker/jellyfin/cache
-mkdir -p -v /home/$USER/media
-mkdir -p -v /home/$USER/media/Filmek
-mkdir -p -v /home/$USER/media/Sorozatok
+mkdir -p -v ~/Docker/jellyfin/config ~/Docker/jellyfin/cache ~/media ~/media/Filmek ~/media/Sorozatok
 
 # A YAML fájl tartalma
 yaml_content="
 version: '3.8'
 services:
-jellyfin:
-image: jellyfin/jellyfin
-container_name: jellyfin
-user: 1000:1000
-network_mode: 'host'
-volumes:
-- /home/$USER/Docker/jellyfin/config:/config
-- /home/$USER/Docker/jellyfin/cache:/cache
-- /home/$USER/media:/media
-- /home/$USER/media:/media2:ro
-restart: 'unless-stopped'
-qbittorrent:
-image: lscr.io/linuxserver/qbittorrent:latest
-container_name: qbittorrent
-environment:
-- PUID=1000
-- PGID=1000
-- TZ=Etc/UTC
-- WEBUI_PORT=8080
-volumes:
-- /home/$USER/Docker/qbittorrent/config:/config
-- /home/$USER/media/Filmek:/downloads/filmek
-- /home/$USER/media/Sorozatok:/downloads/sorozatok
-- /home/$USER/media:/downloads
-ports:
-- 8080:8080
-- 6881:6881
-- 6881:6881/udp
-restart: unless-stopped"
+	jellyfin:
+		image: jellyfin/jellyfin
+		container_name: jellyfin
+		user: 1000:1000
+		network_mode: 'host'
+		volumes:
+			- /home/andr0/Docker/jellyfin/config:/config
+			- /home/andr0/Docker/jellyfin/cache:/cache
+			- /home/andr0/media:/media
+		restart: 'unless-stopped'
+
+	qbittorrent:
+		image: lscr.io/linuxserver/qbittorrent:latest
+		container_name: qbittorrent
+		environment:
+			- PUID=1000
+			- PGID=1000
+			- TZ=Etc/UTC
+			- WEBUI_PORT=8080
+		volumes:
+			- /home/andr0/Docker/qbittorrent/config:/config
+			- /home/andr0/media/filmek:/downloads/filmek
+			- /home/andr0/media/sorozatok:/downloads/sorozatok
+		ports:
+			- 8080:8080
+			- 6881:6881
+			- 6881:6881/udp
+		restart: unless-stopped
+
+	plex:
+		image: lscr.io/linuxserver/plex:latest
+		container_name: plex
+		network_mode: host
+		environment:
+			- PUID=1000
+			- PGID=1000
+			- TZ=Etc/UTC
+			- VERSION=docker
+		volumes:
+			- /home/andr0/Docker/Plex:/config
+			- /home/andr0/media/sorozatok:/tv
+			- /home/andr0/media/filmek:/movies
+		restart: unless-stopped
+"
 
 # A YAML tartalom beírása egy fájlba
-echo "$yaml_content" > docker-compose.yaml
+echo "$yaml_content" > ~/Docker/docker-compose.yaml
 ```
 
 Abban a könyvtárban kell lennünk ahol ezt a yaml fájlt létrehoztuk, és kiadhatjuk a 

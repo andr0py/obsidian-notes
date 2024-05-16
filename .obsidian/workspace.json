@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/virtualbox.md",
+                "file": "docker/Docker használata.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/virtualbox.md",
+                "file": "docker/Docker használata.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/virtualbox.md",
+                "file": "docker/Docker használata.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/virtualbox.md"
+                "file": "docker/Docker használata.md"
               }
             }
           }
@@ -148,8 +148,8 @@
   },
   "active": "bd60c2bea3c3da4a",
   "lastOpenFiles": [
-    "linux/open-SSH-server.md",
     "linux/virtualbox.md",
+    "linux/open-SSH-server.md",
     "docker/Docker használata.md",
     "AI/ollama-in-docker.md",
     "img/ollama.png",
