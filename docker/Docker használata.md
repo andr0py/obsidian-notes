@@ -4,7 +4,6 @@ A Docker egy nyílt forráskódú platform, amely lehetővé teszi a szoftverek 
 
 - **Erőforrás-hatékonyság:** A konténerek csak az alkalmazás futtatásához szükséges operációs rendszerkomponenseket tartalmazzák, ami jelentősen csökkenti a memóriahasználatot és a CPU terhelést.
 - **Hordozhatóság:** A konténerek hordozhatók, ami azt jelenti, hogy ugyanúgy futnak bármilyen gépen, amelyen telepítve van a Docker Engine. Ez megkönnyíti az alkalmazások fejlesztését, tesztelését és üzembe helyezését.
-
 - **Gyors beállítás:** A konténerek gyorsan elindíthatók és leállíthatók, ami ideális a mikroszolgáltatások és a CI/CD folyamatok számára.
 
 ## A Docker célja
@@ -130,5 +129,8 @@ docker-compose start
 
 # futó konténerek ellenőrzése
 docker-compose ps
+
+# docker-compose logok olvasása
+docker-compose logs jellyfin
 
 ```
