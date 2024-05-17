@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "GIT.md",
+                "file": "git/GIT.md",
                 "mode": "preview",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "GIT.md",
+                "file": "git/GIT.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "GIT.md",
+                "file": "git/GIT.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "GIT.md"
+                "file": "git/GIT.md"
               }
             }
           }
@@ -159,10 +159,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f841ee769377cc1f",
+  "active": "f6479241d9573dd6",
   "lastOpenFiles": [
     "docker/Docker használata.md",
-    "GIT.md",
+    "git/GIT.md",
     "git",
     "linux/virtualbox.md",
     "linux/open-SSH-server.md",
