@@ -78,3 +78,14 @@ echo "Konténerek indítása..."
 docker compose up -d
 
 echo "Kész! A konténerek futnak."
+
+# Böngésző megnyitása kis késleltetéssel
+echo "Szolgáltatások megnyitása böngészőben..."
+sleep 5
+xdg-open http://jellyfin.local:8096 &
+sleep 2
+xdg-open http://plex.local:32400/web &
+sleep 2
+xdg-open http://qbittorrent.local:8080 &
+
+echo "Böngésző megnyitva."
