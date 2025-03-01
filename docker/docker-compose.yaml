@@ -23,7 +23,9 @@ services:
     volumes:
       - ${HOME}/Docker/qbittorrent/config:/config
       - ${HOME}/media/filmek:/downloads/filmek
+      - ${HOME}/media/egyeb/filmek:/downloads/egyeb/filmek
       - ${HOME}/media/sorozatok:/downloads/sorozatok
+      - ${HOME}/media/egyeb/sorozatok:/downloads/egyeb/sorozatok
     ports:
       - "8080:8080"
       - "6881:6881"
