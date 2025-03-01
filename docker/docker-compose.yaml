@@ -1,0 +1,60 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    user: "1000:1000"
+    network_mode: "host"  # Hálózati mód változtatása
+    # ports:
+    #   - "8096:8096"  # A külső port 8096 lesz, a konténeren belül is 8096
+    volumes:
+      - ${HOME}/Docker/jellyfin/config:/config
+      - ${HOME}/Docker/jellyfin/cache:/cache
+      - ${HOME}/media:/media
+    restart: unless-stopped
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - WEBUI_PORT=8080
+    volumes:
+      - ${HOME}/Docker/qbittorrent/config:/config
+      - ${HOME}/media/filmek:/downloads/filmek
+      - ${HOME}/media/sorozatok:/downloads/sorozatok
+    ports:
+      - "8080:8080"
+      - "6881:6881"
+      - "6881:6881/udp"
+    restart: unless-stopped
+
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: "host"  # Hálózati mód változtatása
+    # ports:
+    #   - "32400:32400"  # A külső port 32400 lesz, a konténeren belül is 32400
+    #   - "32469:32469"
+    #   - "1900:1900/udp"
+    #   - "5353:5353/udp"
+    #   - "8324:8324"
+    #   - "32410:32410"
+    #   - "32412:32412"
+    #   - "32413:32413"
+    #   - "32414:32414"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - VERSION=docker
+    volumes:
+      - ${HOME}/Docker/Plex:/config
+      - ${HOME}/media/sorozatok:/tv
+      - ${HOME}/media/filmek:/movies
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge  # Hálózat explicit meghatározása
