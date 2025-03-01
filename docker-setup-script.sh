@@ -3,7 +3,7 @@
 set -e  # Hibakezelés: ha egy parancs hibát jelez, a script leáll
 
 # Változók
-DOCKER_COMPOSE_URL="https://példa.hu/docker-compose.yml"  # Itt add meg a letöltési URL-t
+DOCKER_COMPOSE_URL="https://github.com/andr0py/obsidian-notes/blob/660798fac246683f83932401cb6b7fa23c507acf/docker/docker-compose.yaml"  # Itt add meg a letöltési URL-t
 DOCKER_DIR="$HOME/docker"
 MEDIA_DIR="$HOME/media"
 
