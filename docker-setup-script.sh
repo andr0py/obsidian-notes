@@ -3,7 +3,7 @@
 set -e  # Hibakezelés: ha egy parancs hibát jelez, a script leáll
 
 # Változók
-DOCKER_COMPOSE_URL="https://github.com/andr0py/obsidian-notes/blob/d50b72f6b9c8c70a63dfa3fa82e2f3d9fc22eda5/docker/docker-compose.yaml"  # Itt add meg a letöltési URL-t
+DOCKER_COMPOSE_URL="https://github.com/andr0py/obsidian-notes/blob/87ddef8a5adfc98dc89b1802d6ad3e12d469ffde/docker/docker-compose.yaml"  # Itt add meg a letöltési URL-t
 DOCKER_DIR="$HOME/docker"
 MEDIA_DIR="$HOME/media"
 
@@ -39,6 +39,7 @@ mkdir -p "$DOCKER_DIR/jellyfin/config" "$DOCKER_DIR/jellyfin/cache"
 mkdir -p "$DOCKER_DIR/qbittorrent/config"
 mkdir -p "$DOCKER_DIR/plex"
 mkdir -p "$MEDIA_DIR/filmek" "$MEDIA_DIR/sorozatok"
+mkdir -p "$MEDIA_DIR/egyeb/filmek" "$MEDIA_DIR/egyeb/sorozatok"
 
 # Docker Compose fájl letöltése és elérési utak frissítése
 echo "Docker Compose fájl letöltése: $DOCKER_COMPOSE_URL"
