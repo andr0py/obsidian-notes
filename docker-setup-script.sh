@@ -3,7 +3,7 @@
 set -e  # Hibakezelés: ha egy parancs hibát jelez, a script leáll
 
 # Változók
-DOCKER_COMPOSE_URL="https://github.com/andr0py/obsidian-notes/blob/660798fac246683f83932401cb6b7fa23c507acf/docker/docker-compose.yaml"  # Itt add meg a letöltési URL-t
+DOCKER_COMPOSE_URL="https://példa.hu/docker-compose.yml"  # Itt add meg a letöltési URL-t
 DOCKER_DIR="$HOME/docker"
 MEDIA_DIR="$HOME/media"
 
@@ -40,9 +40,37 @@ mkdir -p "$DOCKER_DIR/qbittorrent/config"
 mkdir -p "$DOCKER_DIR/plex"
 mkdir -p "$MEDIA_DIR/filmek" "$MEDIA_DIR/sorozatok"
 
-# Docker Compose fájl letöltése
+# Docker Compose fájl letöltése és elérési utak frissítése
 echo "Docker Compose fájl letöltése: $DOCKER_COMPOSE_URL"
 wget -O "$DOCKER_DIR/docker-compose.yml" "$DOCKER_COMPOSE_URL"
+sed -i "s|\${HOME}|$HOME|g" "$DOCKER_DIR/docker-compose.yml"
+
+# Tűzfal beállítása
+echo "Tűzfal beállítása..."
+apt install -y ufw
+ufw default deny incoming
+ufw default allow outgoing
+
+# Plex és Jellyfin portok engedélyezése
+ufw allow 8096/tcp  # Jellyfin webes felület
+ufw allow 32400/tcp  # Plex fő port
+ufw allow 32469/tcp  # Plex DLNA
+ufw allow 1900/udp   # Plex DLNA
+ufw allow 5353/udp   # Plex mDNS
+ufw allow 8324/tcp   # Plex Remote
+ufw allow 32410:32414/udp  # Plex Network Discovery
+
+ufw enable
+
+echo "Tűzfal beállítva."
+
+# Hosts fájl beállítása
+echo "Lokális névfeloldás beállítása..."
+echo "127.0.0.1 jellyfin.local" | sudo tee -a /etc/hosts
+echo "127.0.0.1 plex.local" | sudo tee -a /etc/hosts
+echo "127.0.0.1 qbittorrent.local" | sudo tee -a /etc/hosts
+
+echo "Névfeloldás beállítva."
 
 # Konténerek indítása
 cd "$DOCKER_DIR"
